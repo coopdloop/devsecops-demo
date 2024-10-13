@@ -29,6 +29,7 @@ jobs:
           cache: maven
 
       - name: Run Snyk to check for vulnerabilities
+      - name: 'License Finder fix with mvnw'
         run: rm mvnw
         # bug
         uses: snyk/actions/node@master
