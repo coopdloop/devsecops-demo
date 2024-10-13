@@ -29,6 +29,8 @@ jobs:
           cache: maven
 
       - name: Run Snyk to check for vulnerabilities
+        run: rm mvnw
+        # bug
         uses: snyk/actions/node@master
         env:
           SNYK_TOKEN: ${{ secrets.OUR_SNYK_KEY }}
