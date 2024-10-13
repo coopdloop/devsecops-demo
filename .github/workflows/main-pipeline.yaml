@@ -25,3 +25,9 @@ jobs:
     name: License compliance
     uses: ./.github/workflows/license-compliance.yaml
     secrets: inherit
+
+  sast:
+    needs: build
+    name: SAST
+    uses: ./.github/workflows/sast.yaml
+    secrets: inherit
