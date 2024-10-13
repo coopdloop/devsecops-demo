@@ -32,12 +32,11 @@ jobs:
         uses: redhat-actions/openshift-tools-installer@v1
         with:
           source: github
-          github_pat: ${{ github.token }}
           crda: "latest"
 
       - name: SCA (CRDA) Scan
         id: crda_scan
-        uses: redhat-actions/crda@v1
+        uses: redhat-actions/crda@v1.3
         with:
           manifest_file: ${{ matrix.manifest_file }}
           snyk_token: ${{ secrets.OUR_SNYK_KEY }}
