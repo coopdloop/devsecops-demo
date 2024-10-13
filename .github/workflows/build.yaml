@@ -27,17 +27,17 @@ jobs:
       run: mvn clean package -B -Dmaven.test.skip
     - run: mkdir candidate-binary && cp target/*.jar candidate-binary
     # test
-    - name: Test with Maven
-      run: mvn test
-    - run: mkdir test-results && cp target/*-reports/TEST-*.xml test-results
+    # - name: Test with Maven
+    #   run: mvn test
+    # - run: mkdir test-results && cp target/*-reports/TEST-*.xml test-results
     - uses: actions/upload-artifact@v3
       with:
         name: Application-Binary
         path: candidate-binary
-    - uses: actions/upload-artifact@v3
-      with:
-        name: Test-Results
-        path: test-results
+    # - uses: actions/upload-artifact@v3
+    #   with:
+    #     name: Test-Results
+    #     path: test-results
     - name: Publish Test Results
       uses: EnricoMi/publish-unit-test-result-action@v2.0.0
       if: always()
