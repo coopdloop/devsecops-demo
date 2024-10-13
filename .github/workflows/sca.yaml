@@ -28,12 +28,12 @@ jobs:
           java-version: 11
           cache: maven
 
-    - name: Run Snyk to check for vulnerabilities
-      uses: snyk/actions/node@master
-      env:
-        SNYK_TOKEN: ${{ secrets.OUR_SNYK_KEY }}
-      with:
-        command: test
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.OUR_SNYK_KEY }}
+        with:
+          command: test
 
       # - name: Install SCA tool (CRDA)
       #   uses: redhat-actions/openshift-tools-installer@v1
