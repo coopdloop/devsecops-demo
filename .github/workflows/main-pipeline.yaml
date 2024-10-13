@@ -31,3 +31,17 @@ jobs:
     name: License compliance
     uses: ./.github/workflows/license-compliance.yaml
     secrets: inherit
+
+  docker:
+    needs: build
+    name: Build docker image
+    uses: ./.github/workflows/docker.yaml
+    secrets: inherit
+
+  container-image-scan:
+    needs: docker
+    name: Build docker image
+    uses: ./.github/workflows/container-image-scan.yaml
+    secrets: inherit
+    with:
+      image-tag: ${{ needs.docker.outputs.image-tag }}

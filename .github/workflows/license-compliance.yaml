@@ -21,10 +21,10 @@ jobs:
                                  hamcrest,hamcrest-core,hamcrest-library
                                  junit-jupiter,junit-jupiter-api,junit-jupiter-engine,javax.annotation-api
       - name: Publish Test Results
-        uses: EnricoMi/publish-unit-test-result-action@main
+        uses: EnricoMi/publish-unit-test-result-action@v2
         if: always()
         with:
-          junit_files: "license_finder_report.xml"
+          files: "license_finder_report.xml"
           check_name: "License Compliance Check"
       - name: 'Upload Dependency Review Report'
         if: always()
