@@ -14,14 +14,14 @@ jobs:
       - name: 'License Finder fix with mvnw'
         run: rm mvnw
       - name: 'License Finder'
-        uses: jmservera/license-finder-action@v0.1.4-alpha
+        uses: jmservera/license-finder-action@main
         with:
           permitted-licenses: MIT,Apache-2.0,BSD,EPL1
           approved-dependencies: |
                                  hamcrest,hamcrest-core,hamcrest-library
                                  junit-jupiter,junit-jupiter-api,junit-jupiter-engine,javax.annotation-api
       - name: Publish Test Results
-        uses: EnricoMi/publish-unit-test-result-action@v2.0.0
+        uses: EnricoMi/publish-unit-test-result-action@main
         if: always()
         with:
           junit_files: "license_finder_report.xml"

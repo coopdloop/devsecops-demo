@@ -28,8 +28,6 @@ jobs:
           java-version: 11
           cache: maven
 
-      - name: 'License Finder fix with mvnw'
-        run: rm mvnw
       - name: Run Snyk to check for vulnerabilities
         # bug
         uses: snyk/actions/node@master
