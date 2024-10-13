@@ -11,8 +11,8 @@ jobs:
     steps:
       - name: 'Checkout Repository'
         uses: actions/checkout@v4
-      - name: 'License Finder fix with mvnw'
-        run: rm mvnw
+      # - name: 'License Finder fix with mvnw'
+      #   run: rm mvnw
       - name: 'License Finder'
         uses: jmservera/license-finder-action@main
         with:
