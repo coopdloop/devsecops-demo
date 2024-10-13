@@ -45,3 +45,11 @@ jobs:
     secrets: inherit
     with:
       image-tag: ${{ needs.docker.outputs.image-tag }}
+
+  dast:
+    needs: [build,docker]
+    name: DAST Scan
+    uses: ./.github/workflows/dast.yaml
+    secrets: inherit
+    with:
+      image-tag: ${{ needs.docker.outputs.image-tag }}
